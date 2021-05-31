@@ -7,7 +7,9 @@
     width:48%;
     font-size: 0.85em;
     line-height: 1.5;
-}#right {
+}
+
+#right {
     margin: 10px 0 15px 0;
     float: right;
     text-align: center;
@@ -34,8 +36,7 @@
 # Le Clean Code
 
 Martial DERRIEN<br/>
-Niji<br/>
-2020 05 31
+<img src="./assets/niji.png" alt="niji" width="200"/>
 
 ---
 
@@ -47,7 +48,8 @@ Niji<br/>
 - Les Commentaires
 - Structurer son code
 - Tests
-- Code smells
+- Les Objets
+- "Code smells"
 
 ---
 ## Introduction
@@ -413,83 +415,63 @@ function makeVersion(): number {
 
 ---
 
-## Solution
+## Source code structure
 
-```
-total_cents = total * 100
-average_per_customer = total_cents / customer_count
-
-track_average(average_per_customer)
-```
-
-- Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
-
----
-
-## Structurer son code
-
-> todo
+- Separate concepts vertically
+- Related code should appear vertically dense
+- Declare variables close to their usage
+- Dependent functions should be close 
+- Similar functions should be close
+- Place functions in the downward direction
+- Keep lines short
+- Don't use horizontal alignment
+- Use white space to associate related things and dissociate weakly related
+- Don't break indentation
 
 ---
 
 ## Tests
 
+- One assert per test
+- Readable
+- Fast
+- Independent
+- Repeatable
+
+---
+
+## Objects & Data structure
+
+- Hide internal structure
+- Prefer data structures
+- Avoid hybrid (half object and half data)
+- Should be small
+- Do ONE thing
+- Small number of instance variables
+- Base class should know nothing about their derivatives
+- Better to have many functions than to pass code into a function
+- Prefer non-static methods
+
 ---
 
 ## "Code Smells"
 
-![code_smells.jpeg](./assets/code_smells.jpeg)
+- Rigidity (The software is difficult to change)
+- Fragility (The software breaks in many places due to a single change)
+- Immobility (You can not reuse parts of the code in other projects)
+- Needless Complexity
+- Needless Repetition
+- Opacity (The code is hard to read)
 
 ---
 
-## Split slide
+## Sources
 
-<div id="right">
+Résumé du livre par @wojteklu :
 
-- You can place two graphs on a slide
-- Or two columns of text
-- These are all created with div elements
+- https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
 
-</div>
+Le livre lui même :
 
----
-
-## code Slide
-
-<pre><code data-line-numbers="3|4-5|6">import fs from 'fs';
-
-fs.readFile('markdown.md', (content) => {
-  console.log('content');
-  console.log('do stuff');
-  process.exit(0);
-});</code></pre>
-
----
-
-
-## Fragmented Slide
-
-<!-- .slide: data-background="#ff0000" -->
-
-- Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
-- Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
-
-
----
-
-## Video Slide 1
-
-<video class="stretch" data-autoplay controls src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
-
-----
-
-<video class="stretch" data-autoplay controls src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
-
----
-
-### Background Video (with notes)
-
-<!-- .slide: data-background-video="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" data-background-video-loop -->
-
-Note: let them choose
+- https://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&dchild=1&keywords=clean+code&qid=1622382178&sr=8-1
 
