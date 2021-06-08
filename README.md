@@ -1,8 +1,8 @@
 # Clean code presentation
 
-> Made using Reveal-md
+> The presentation is available [here](https://mderrien29.github.io/presentation-clean-code/)
 
-Available [here](https://mderrien29.github.io/presentation-clean-code/)
+Made using `Reveal-md`
 
 ## Requirements
 
