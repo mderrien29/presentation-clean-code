@@ -1,0 +1,28 @@
+{
+  "name": "presentation-clean-code",
+  "version": "1.0.0",
+  "description": "> The presentation is available [here](https://mderrien29.github.io/presentation-clean-code/)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "reveal-md slides.md",
+    "build": "rimraf -r docs && reveal-md slides.md --static --static-dirs=assets && mv _static docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mderrien29/presentation-clean-code.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mderrien29/presentation-clean-code/issues"
+  },
+  "homepage": "https://github.com/mderrien29/presentation-clean-code#readme",
+  "dependencies": {
+    "reveal-md": "^5.3.2",
+    "rimraf": "^3.0.2"
+  }
+}

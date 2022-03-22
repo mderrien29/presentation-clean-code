@@ -36,7 +36,7 @@
 # Le Clean Code
 
 Martial DERRIEN<br/>
-<img src="./assets/niji.png" alt="niji" width="200"/>
+<img src="./assets/mansa.png" alt="mansa" width="200"/>
 
 ---
 
