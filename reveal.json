@@ -5,7 +5,7 @@
 "progress": true,
 "center": false,
 "slideNumber": true,
-"parallaxBackgroundImage": "./assets/background.jpg",
-"parallaxBackgroundSize": "3840px 2160px",
+"parallaxBackgroundImage": "./assets/background.png",
+"parallaxBackgroundSize": "3860px 2160px",
 "keyboard": {"81": "toggleOverview"}
 }

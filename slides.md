@@ -32,20 +32,22 @@
 
 </style>
 
-# Et si je codais proprement ? 
-# Le Clean Code
+# A short introduction to the clean code principles
 
 Martial DERRIEN<br/>
 <img src="./assets/mansa.png" alt="mansa" width="200"/>
 
 ---
 
-## Plan
+## What are we going to see :
 
 - Introduction
 - Les Variables
 - Les Fonctions
 - Les Commentaires
+
+## What we probably won't :
+
 - Structurer son code
 - Tests
 - Les Objets
@@ -67,26 +69,33 @@ Martial DERRIEN<br/>
 - 2011 - The Clean Coder: A Code Of Conduct For Professional Programmers
 
 Note:
-Quelqu'un peut-il proposer une definition d'un mauvais code ?
+SOLID
+The single-responsibility principle: "There should never be more than one reason for a class to change."
+The open-closed principle: "Software entities ... should be open for extension, but closed for modification."
+The Liskov substitution principle: "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."
+The interface segregation principle: "Many client-specific interfaces are better than one general-purpose interface."
+The dependency inversion principle: "Depend upon abstractions, not concretions."
+
+Quelqu'un peut-il me dire comment reconnaitre un mauvais code ?
 
 ----
 
-## Qu'est-ce que le "clean code" ?
+## What is "clean code" ?
 
 ![](./assets/wtf_by_minute.png)
 
 ---
 
-## Les Variables
+## Variables
 
 > You should name a variable using the same care with which you name a first-born child. - Robert C. Martin
 
 ----
 
-## Des noms qui ont du sens
+## Uses names to convey meaning
 
 ```java
-int d; // elapsed times in day
+int d; // elapsed time in day
 ```
 
 ```java
@@ -102,7 +111,7 @@ Avez vous une meilleur idee pour nommer la variable ?
 
 ----
 
-## Utiliser des noms prononcables
+## Use pronouncable names
 
 - "Humans are good at words" <!-- .element: class="fragment" data-fragment-index="3" -->
 
@@ -162,13 +171,13 @@ Fin sur les variables, transitions functions
 ---
 
 
-## Les Fonctions
+## Functions
 
 > The first rule of functions is that they should be small. The second rule, is that they should be smaller than that. - Robert C. Martin
 
 ----
 
-## Mauvais exemple
+## Bad example
 
 Exemple de HtmlUtils.java issu du framework 'FitNesse'
 
@@ -260,6 +269,9 @@ Note:
 Laisser quelques secondes pour comprendre.
 On lit de haut en bas, comme une histoire
 
+Abstraction Level: The amount of complexity by which a system is viewed or programmed. The higher the level, the less detail. The lower the level, the more detail.
+Copine coiffure, tu répond que la coiffure est jolie, et que les différentes couches de Kératine qui compose les dis phanéres sont bien réparties.
+
 ----
 
 ## Even smaller
@@ -280,7 +292,7 @@ public static String renderPageWithSetupsAndTeardowns(PageData pageData, boolean
 
 ----
 
-## Quelques autres regles
+## Some other rules...
 
 ```typescript
 function async getUser(id: string): Promise<User> {
@@ -295,7 +307,7 @@ function async getUser(id: string): Promise<User> {
 
 ----
 
-## Quelques autres regles
+## Some other rules...
 
 ```javascript
 let numbers = [1,2,3,4,5];
@@ -303,7 +315,7 @@ const firstThreeNumbers = numbers.splice(0,3);
 const lastThreeNumbers = numbers.splice(2,5);
 ```
 
-```
+```javascript
 let numbers = [1,2,3,4,5]; // 1,2,3,4,5
 
 const firstThreeNumbers = numbers.splice(0,3); 
@@ -315,7 +327,7 @@ const lastThreeNumbers = numbers.splice(2,5);
 ```
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-- Limiter les parametres "in/out"
+- Limit "in/out" parameters
 <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
@@ -329,10 +341,10 @@ function initDb(config: Config, useHttps: boolean) {
 }
 ```
 
-- Limiter les parametres booleens.
+- Limit booleans parameters
 <!-- .element: class="fragment" data-fragment-index="2" -->
-- Limiter le nombre de parametres (2/3 maximum)
-<!-- .element: class="fragment" data-fragment-index="2" -->
+- Limit the numbers of parameters
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ---
 
@@ -340,16 +352,18 @@ function initDb(config: Config, useHttps: boolean) {
 
 > Don't comment bad code... Rewrite it - Robert C. Martin
 
-- Les commentaires sont toujours un echec. L'echec d'utiliser le langage pour s'exprimer.
+- Comments are always failure. Failure to use the coding language to express yourself.
 <!-- .element: class="fragment" data-fragment-index="2" -->
-- Le code change, les commentaires peuvent donc devenir des mensonges
+- Code changes. Comments can become liabilities.
 <!-- .element: class="fragment" data-fragment-index="3" -->
-- Parfois, ils sont necessaires...
+- Sometimes, they are still necessary...
 <!-- .element: class="fragment" data-fragment-index="4" -->
+
+Note: Vous faites un oral d'anglais, vous dites des mots français pour vous rattraper
 
 ----
 
-## Mauvais commentaires
+## Bad comments
 
 ```java
 // Check if employee is eligible for full benefits
@@ -368,7 +382,7 @@ if (employee.isEligibleForFullBenefits())
 
 ----
 
-## Autre exemple
+## Other examples
 
 ```java
 // does the module from the global list <mod> depend on the
@@ -385,7 +399,7 @@ if (moduleDependees.contains(ourSubSystem))
 <!-- .element: class="fragment" data-fragment-index="2" -->
 ----
 
-## Bons commentaires
+## Good comments
 
 ```java
 // format matched: hh:mm:ss EEE, MMM dd, yyyy
@@ -467,11 +481,11 @@ function makeVersion(): number {
 
 ## Sources
 
-Résumé du livre par @wojteklu :
+@wojteklu made a good summary :
 
 - https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
 
-Le livre lui même :
+the book :
 
 - https://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&dchild=1&keywords=clean+code&qid=1622382178&sr=8-1
 
