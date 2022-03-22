@@ -6,12 +6,12 @@ Made using `Reveal-md`
 
 ## Requirements
 
-- Reveal-md : https://github.com/webpro/reveal-md
+- `npm install`
 
 ## Development
 
-`./start.sh`
+- `npm run start`
 
 ## Build
 
-`./build.sh`
+- `npm run build`
