@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "reveal-md slides.md --highlight-theme shades-of-purple",
-    "build": "rimraf -r docs && reveal-md slides.md --static --static-dirs=assets --highlight-theme shades-of-purple && mv _static docs",
+    "build": "rimraf -r docs && reveal-md slides.md --static --static-dirs=assets --highlight-theme shades-of-purple --title 'Clean Code' && mv _static docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
