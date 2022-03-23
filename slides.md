@@ -46,12 +46,14 @@ Martial DERRIEN<br/>
 - Functions
 - Comments
 
+<br/>
+
 ## What we probably won't :
 
-- Structurer son code
+- Code Structure
 - Tests
-- Les Objets
-- "Code smells"
+- Objects
+- Code smells
 
 ---
 ## Introduction
@@ -69,20 +71,28 @@ Martial DERRIEN<br/>
 - 2011 - The Clean Coder: A Code Of Conduct For Professional Programmers
 
 Note:
+Quelqu'un peut-il me dire comment reconnaitre un mauvais code ?
+
 SOLID
+
 The single-responsibility principle: "There should never be more than one reason for a class to change."
+
 The open-closed principle: "Software entities ... should be open for extension, but closed for modification."
+
 The Liskov substitution principle: "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."
+
 The interface segregation principle: "Many client-specific interfaces are better than one general-purpose interface."
+
 The dependency inversion principle: "Depend upon abstractions, not concretions."
 
-Quelqu'un peut-il me dire comment reconnaitre un mauvais code ?
 
 ----
 
 ## What is "clean code" ?
 
 ![](./assets/wtf_by_minute.png)
+
+
 
 ---
 
@@ -92,7 +102,7 @@ Quelqu'un peut-il me dire comment reconnaitre un mauvais code ?
 
 ----
 
-## Uses names to convey meaning
+## Use names to convey meaning
 
 ```java
 int d; // elapsed time in day
@@ -108,6 +118,7 @@ int daysSinceModification;
 
 Note:
 Avez vous une meilleur idee pour nommer la variable ?
+exception: on peut utiliser des noms plus courts
 
 ----
 
@@ -179,7 +190,7 @@ Fin sur les variables, transitions functions
 
 ## Bad example
 
-Exemple de HtmlUtils.java issu du framework 'FitNesse'
+Example: HtmlUtils.java from framework 'FitNesse'
 
 <pre><code style="font-size: 0.5em !important" data-trim data-noescape data-line-numbers="0|1|4|5|10-12|19-21" class="java">
 public static String testableHtml(PageData pageData, boolean includeSuiteSetup) throws Exception {
@@ -258,11 +269,11 @@ public static String renderPageWithSetupsAndTeardowns(PageData pageData, boolean
 </pre></code>
 
 
-- Les fonctions ne doivent pas depasser 20 lignes !
+- Functions should be short, 20 lines is already a lot !
 <!-- .element: class="fragment" data-fragment-index="8" -->
-- Une fonction doit se limiter a 1 ou 2 niveaux d'indentation.
+- Functions should have 1 (or 2) indentation level.
 <!-- .element: class="fragment" data-fragment-index="9" -->
-- Un seul niveau d'abstraction par fonction
+- One function = One abstraction level.
 <!-- .element: class="fragment" data-fragment-index="10" -->
 
 Note: 
@@ -270,7 +281,7 @@ Laisser quelques secondes pour comprendre.
 On lit de haut en bas, comme une histoire
 
 Abstraction Level: The amount of complexity by which a system is viewed or programmed. The higher the level, the less detail. The lower the level, the more detail.
-Copine coiffure, tu répond que la coiffure est jolie, et que les différentes couches de Kératine qui compose les dis phanéres sont bien réparties.
+Si je ton neveu demande comment fonctionne une voiture et que tu m'explique comment sont fabriqués les freins, tu es au mauvais niveau d'abstraction.
 
 ----
 
@@ -302,8 +313,9 @@ function async getUser(id: string): Promise<User> {
 }
 ```
 
-- Pas de "side effect".
+- Be careful with "side effects". A function should only do what the name suggests.
 <!-- .element: class="fragment" data-fragment-index="2" -->
+
 
 ----
 
@@ -327,7 +339,7 @@ const lastThreeNumbers = numbers.splice(2,5);
 ```
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-- Limit "in/out" parameters
+- Limit "in/out" parameters. Or don't use them.
 <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
@@ -356,7 +368,7 @@ function initDb(config: Config, useHttps: boolean) {
 <!-- .element: class="fragment" data-fragment-index="2" -->
 - Code changes. Comments can become liabilities.
 <!-- .element: class="fragment" data-fragment-index="3" -->
-- Sometimes, they are still necessary...
+- Sometimes, they are still necessary... And it feels bad to use them !
 <!-- .element: class="fragment" data-fragment-index="4" -->
 
 Note: Vous faites un oral d'anglais, vous dites des mots français pour vous rattraper
@@ -378,7 +390,7 @@ if (employee.isEligibleForFullBenefits())
 - "This code is hard to read, i should add comments"
 <!-- .element: class="fragment" data-fragment-index="3" -->
 - "NO! You should clean it!"
-<!-- .element: class="fragment" data-fragment-index="4" -->
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ----
 
@@ -481,11 +493,13 @@ function makeVersion(): number {
 
 ## Sources
 
-@wojteklu made a good summary :
+- [buy the book](https://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&dchild=1&keywords=clean+code&qid=1622382178&sr=8-1)
+- [summary by @wojteklu](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29)
 
-- https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
+---
 
-the book :
+## Conclusion
 
-- https://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&dchild=1&keywords=clean+code&qid=1622382178&sr=8-1
-
+<textarea style="width:70%; min-height:400px">
+Discuss !
+</textarea>

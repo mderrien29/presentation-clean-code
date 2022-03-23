@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./dist/reset.css" />
     <link rel="stylesheet" href="./dist/reveal.css" />
     <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
-    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/highlight/shades-of-purple.css" />
 
 
   </head>
@@ -61,12 +61,14 @@ Martial DERRIEN<br/>
 - Functions
 - Comments
 
+<br/>
+
 ## What we probably won't :
 
-- Structurer son code
+- Code Structure
 - Tests
-- Les Objets
-- "Code smells"
+- Objects
+- Code smells
 </script></section><section ><section data-markdown><script type="text/template">## Introduction
 
 ![book](./assets/book.jpg)
@@ -79,23 +81,25 @@ Martial DERRIEN<br/>
 - 2009 - Clean Code: A Handbook of Agile Software Craftsmanship
 - 2011 - The Clean Coder: A Code Of Conduct For Professional Programmers
 
-<aside class="notes"><p>SOLID
-The single-responsibility principle: &quot;There should never be more than one reason for a class to change.&quot;
-The open-closed principle: &quot;Software entities ... should be open for extension, but closed for modification.&quot;
-The Liskov substitution principle: &quot;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&quot;
-The interface segregation principle: &quot;Many client-specific interfaces are better than one general-purpose interface.&quot;
-The dependency inversion principle: &quot;Depend upon abstractions, not concretions.&quot;</p>
-<p>Quelqu&#39;un peut-il me dire comment reconnaitre un mauvais code ?</p>
+<aside class="notes"><p>Quelqu&#39;un peut-il me dire comment reconnaitre un mauvais code ?</p>
+<p>SOLID</p>
+<p>The single-responsibility principle: &quot;There should never be more than one reason for a class to change.&quot;</p>
+<p>The open-closed principle: &quot;Software entities ... should be open for extension, but closed for modification.&quot;</p>
+<p>The Liskov substitution principle: &quot;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&quot;</p>
+<p>The interface segregation principle: &quot;Many client-specific interfaces are better than one general-purpose interface.&quot;</p>
+<p>The dependency inversion principle: &quot;Depend upon abstractions, not concretions.&quot;</p>
 </aside></script></section><section data-markdown><script type="text/template">
 ## What is "clean code" ?
 
 ![](./assets/wtf_by_minute.png)
+
+
 </script></section></section><section ><section data-markdown><script type="text/template">
 ## Variables
 
 > You should name a variable using the same care with which you name a first-born child. - Robert C. Martin
 </script></section><section data-markdown><script type="text/template">
-## Uses names to convey meaning
+## Use names to convey meaning
 
 ```java
 int d; // elapsed time in day
@@ -109,7 +113,8 @@ int daysSinceModification;
 ```
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-<aside class="notes"><p>Avez vous une meilleur idee pour nommer la variable ?</p>
+<aside class="notes"><p>Avez vous une meilleur idee pour nommer la variable ?
+exception: on peut utiliser des noms plus courts</p>
 </aside></script></section><section data-markdown><script type="text/template">
 ## Use pronouncable names
 
@@ -172,7 +177,7 @@ Fin sur les variables, transitions functions</p>
 </script></section><section data-markdown><script type="text/template">
 ## Bad example
 
-Exemple de HtmlUtils.java issu du framework 'FitNesse'
+Example: HtmlUtils.java from framework 'FitNesse'
 
 <pre><code style="font-size: 0.5em !important" data-trim data-noescape data-line-numbers="0|1|4|5|10-12|19-21" class="java">
 public static String testableHtml(PageData pageData, boolean includeSuiteSetup) throws Exception {
@@ -248,17 +253,17 @@ public static String renderPageWithSetupsAndTeardowns(PageData pageData, boolean
 </pre></code>
 
 
-- Les fonctions ne doivent pas depasser 20 lignes !
+- Functions should be short, 20 lines is already a lot !
 <!-- .element: class="fragment" data-fragment-index="8" -->
-- Une fonction doit se limiter a 1 ou 2 niveaux d'indentation.
+- Functions should have 1 (or 2) indentation level.
 <!-- .element: class="fragment" data-fragment-index="9" -->
-- Un seul niveau d'abstraction par fonction
+- One function = One abstraction level.
 <!-- .element: class="fragment" data-fragment-index="10" -->
 
 <aside class="notes"><p>Laisser quelques secondes pour comprendre.
 On lit de haut en bas, comme une histoire</p>
 <p>Abstraction Level: The amount of complexity by which a system is viewed or programmed. The higher the level, the less detail. The lower the level, the more detail.
-Copine coiffure, tu répond que la coiffure est jolie, et que les différentes couches de Kératine qui compose les dis phanéres sont bien réparties.</p>
+Si je ton neveu demande comment fonctionne une voiture et que tu m&#39;explique comment sont fabriqués les freins, tu es au mauvais niveau d&#39;abstraction.</p>
 </aside></script></section><section data-markdown><script type="text/template">
 ## Even smaller
 
@@ -286,8 +291,9 @@ function async getUser(id: string): Promise<User> {
 }
 ```
 
-- Pas de "side effect".
+- Be careful with "side effects". A function should only do what the name suggests.
 <!-- .element: class="fragment" data-fragment-index="2" -->
+
 </script></section><section data-markdown><script type="text/template">
 ## Some other rules...
 
@@ -309,7 +315,7 @@ const lastThreeNumbers = numbers.splice(2,5);
 ```
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-- Limit "in/out" parameters
+- Limit "in/out" parameters. Or don't use them.
 <!-- .element: class="fragment" data-fragment-index="3" -->
 
 </script></section><section data-markdown><script type="text/template">
@@ -334,7 +340,7 @@ function initDb(config: Config, useHttps: boolean) {
 <!-- .element: class="fragment" data-fragment-index="2" -->
 - Code changes. Comments can become liabilities.
 <!-- .element: class="fragment" data-fragment-index="3" -->
-- Sometimes, they are still necessary...
+- Sometimes, they are still necessary... And it feels bad to use them !
 <!-- .element: class="fragment" data-fragment-index="4" -->
 
 <aside class="notes"><p>Vous faites un oral d&#39;anglais, vous dites des mots français pour vous rattraper</p>
@@ -354,7 +360,7 @@ if (employee.isEligibleForFullBenefits())
 - "This code is hard to read, i should add comments"
 <!-- .element: class="fragment" data-fragment-index="3" -->
 - "NO! You should clean it!"
-<!-- .element: class="fragment" data-fragment-index="4" -->
+<!-- .element: class="fragment" data-fragment-index="3" -->
 </script></section><section data-markdown><script type="text/template">
 ## Other examples
 
@@ -443,14 +449,14 @@ function makeVersion(): number {
 </script></section><section  data-markdown><script type="text/template">
 ## Sources
 
-@wojteklu made a good summary :
+- [buy the book](https://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&dchild=1&keywords=clean+code&qid=1622382178&sr=8-1)
+- [summary by @wojteklu](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29)
+</script></section><section  data-markdown><script type="text/template">
+## Conclusion
 
-- https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
-
-the book :
-
-- https://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&dchild=1&keywords=clean+code&qid=1622382178&sr=8-1
-
+<textarea style="width:70%; min-height:400px">
+Discuss !
+</textarea>
 </script></section></div>
     </div>
 
@@ -494,7 +500,7 @@ the book :
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"theme":"white","transition":"slide","controls":false,"progress":true,"center":false,"slideNumber":true,"parallaxBackgroundImage":"./assets/background.png","parallaxBackgroundSize":"3860px 2160px","keyboard":{"81":"toggleOverview"}}, queryOptions);
+      var options = extend(defaultOptions, {"theme":"white","transition":"fade","controls":false,"progress":true,"center":false,"slideNumber":true,"parallaxBackgroundImage":"./assets/background.png","parallaxBackgroundSize":"3860px 2160px","keyboard":{"81":"toggleOverview"}}, queryOptions);
     </script>
 
 

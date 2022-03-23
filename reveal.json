@@ -1,6 +1,6 @@
 {
 "theme":"white",
-"transition":"slide",
+"transition":"fade",
 "controls": false,
 "progress": true,
 "center": false,
