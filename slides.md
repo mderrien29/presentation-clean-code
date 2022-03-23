@@ -42,9 +42,9 @@ Martial DERRIEN<br/>
 ## What are we going to see :
 
 - Introduction
-- Les Variables
-- Les Fonctions
-- Les Commentaires
+- Variables
+- Functions
+- Comments
 
 ## What we probably won't :
 
