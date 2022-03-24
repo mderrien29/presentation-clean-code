@@ -501,5 +501,10 @@ function makeVersion(): number {
 ## Conclusion
 
 <textarea style="width:70%; min-height:400px">
-Discuss !
+Main points:
+  Variables : should be named carefully.
+  Functions : should be short ! and keep it at one abstraction level.
+  Comments : should not be your favourite solution.
+
+Let's discuss : Should we enforce it ? What could we do to enforce it ?
 </textarea>
